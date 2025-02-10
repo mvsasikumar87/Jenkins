@@ -6,7 +6,7 @@ import java.util.Properties;
 
 public class ConfigReader {
 	
-	static final String path="D:\\OneDrive - Teknoturf Info Services Private Limited\\Official\\Test automation\\Jenkins\\Workspace\\UIandAPI_Automation\\Login.properties";
+	static final String path="Login.properties";
 
 	public static String getPropertyValue(String key) throws Exception{
       

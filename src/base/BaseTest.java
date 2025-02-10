@@ -8,7 +8,7 @@ public class BaseTest {
 	public static WebDriver driver;
 	public static WebDriver setUp() {
 
-		System.setProperty("webdriver.chrome.driver", "D:\\OneDrive - Teknoturf Info Services Private Limited\\Official\\Test automation\\Drivers\\ChromeDriver\\chromedriver-win64_133\\chromedriver-win64\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "chromedriver2.exe");
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--headless");
 //		options.addArguments("--disable-gpu");

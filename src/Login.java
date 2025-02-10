@@ -14,7 +14,7 @@ public class Login {
     private WebDriver driver;
 
     @BeforeClass
-   public void setUp() {
+    public void setUp() {
         // Set the path to the GeckoDriver executable
       //  System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 
@@ -29,8 +29,6 @@ public class Login {
      //   firefoxBinary.addCommandLineOptions("--headless");
         
      //   System.setProperty("webdriver.gecko.driver", "geckodriver.exe");
-<<<<<<< HEAD
-=======
 
      // Initialize Firefox options
    //  FirefoxOptions options = new FirefoxOptions();
@@ -51,32 +49,7 @@ public class Login {
     	driver = new ChromeDriver(options);
 
     }
->>>>>>> 2fdbea0 (test)
 
-     // Initialize Firefox options
-   //  FirefoxOptions options = new FirefoxOptions();
-   //  options.addArguments("--headless");  // Enable headless mode
-
-     // Initialize the FirefoxDriver with options
-  //   driver = new FirefoxDriver(options);
-    	
-    //	System.setProperty("webdriver.chrome.driver", "D:\\Soft\\133chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
-
-    	// Initialize Chrome options
-    //	ChromeOptions options = new ChromeOptions();
-    //	options.addArguments("--headless");  // Enable headless mode
-
-    	// Initialize the ChromeDriver with options
-    //	driver = new ChromeDriver(options);
-       System.setProperty("webdriver.chrome.driver", "D:\\Soft\\133chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
-    	ChromeOptions options = new ChromeOptions();
-       options.addArguments("--start-maximized"); // Starts browser maximized
-options.addArguments("--no-sandbox"); // Bypass OS security model (can be helpful in CI environments)
-options.addArguments("--disable-dev-shm-usage");
-    	driver = new ChromeDriver(options);
-     //  driver = new ChromeDriver();
-
-    }
     @Test
     public void openBrowser() {
         // Navigate to a website

@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-02-10T18:36:29 IST" name="Suite" finished-at="2025-02-10T18:37:39 IST" duration-ms="69419">
+  <suite started-at="2025-02-11T11:49:53 IST" name="Suite" finished-at="2025-02-11T11:50:15 IST" duration-ms="22080">
     <groups>
     </groups>
-    <test started-at="2025-02-10T18:36:29 IST" name="Test" finished-at="2025-02-10T18:37:39 IST" duration-ms="69419">
+    <test started-at="2025-02-11T11:49:53 IST" name="Test" finished-at="2025-02-11T11:50:15 IST" duration-ms="22080">
       <class name="tests.StudentPortalTest">
-        <test-method is-config="true" signature="setUpTest()[pri:0, instance:tests.StudentPortalTest@41dd05a]" started-at="2025-02-10T18:36:31 IST" name="setUpTest" finished-at="2025-02-10T18:37:03 IST" duration-ms="32352" status="PASS">
+        <test-method is-config="true" signature="setUpTest()[pri:0, instance:tests.StudentPortalTest@41dd05a]" started-at="2025-02-11T11:49:53 IST" name="setUpTest" finished-at="2025-02-11T11:49:59 IST" duration-ms="5419" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpTest -->
-        <test-method signature="testAddStudent()[pri:0, instance:tests.StudentPortalTest@41dd05a]" started-at="2025-02-10T18:37:03 IST" name="testAddStudent" finished-at="2025-02-10T18:37:26 IST" duration-ms="22799" status="PASS">
+        <test-method signature="testAddStudent()[pri:0, instance:tests.StudentPortalTest@41dd05a]" started-at="2025-02-11T11:49:59 IST" name="testAddStudent" finished-at="2025-02-11T11:50:12 IST" duration-ms="12906" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testAddStudent -->
-        <test-method signature="testUpdateDeleteStudent()[pri:0, instance:tests.StudentPortalTest@41dd05a]" started-at="2025-02-10T18:37:26 IST" name="testUpdateDeleteStudent" finished-at="2025-02-10T18:37:39 IST" duration-ms="12947" status="PASS">
+        <test-method signature="testUpdateDeleteStudent()[pri:0, instance:tests.StudentPortalTest@41dd05a]" started-at="2025-02-11T11:50:12 IST" name="testUpdateDeleteStudent" finished-at="2025-02-11T11:50:15 IST" duration-ms="3404" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testUpdateDeleteStudent -->
-        <test-method is-config="true" signature="tearDownTest()[pri:0, instance:tests.StudentPortalTest@41dd05a]" started-at="2025-02-10T18:37:39 IST" name="tearDownTest" finished-at="2025-02-10T18:37:39 IST" duration-ms="2" status="PASS">
+        <test-method is-config="true" signature="tearDownTest()[pri:0, instance:tests.StudentPortalTest@41dd05a]" started-at="2025-02-11T11:50:15 IST" name="tearDownTest" finished-at="2025-02-11T11:50:15 IST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownTest -->

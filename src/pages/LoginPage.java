@@ -34,28 +34,28 @@ public class LoginPage {
 
     public void enterUsername(String username) {
         try {
-            logger.info("Entering username: {}", username);
+        //    logger.info("Entering username: {}", username);
             usernameField.sendKeys(username);
         } catch (NoSuchElementException | ElementNotInteractableException e) {
-            logger.error("Error entering username '{}': {}", username, e.getMessage());
+          //  logger.error("Error entering username '{}': {}", username, e.getMessage());
         }
     }
 
     public void enterPassword(String password) {
         try {
-            logger.info("Entering password.");
+         //   logger.info("Entering password.");
             passwordField.sendKeys(password);
         } catch (NoSuchElementException | ElementNotInteractableException e) {
-            logger.error("Error entering password: {}", e.getMessage());
+         //   logger.error("Error entering password: {}", e.getMessage());
         }
     }
 
     public void clickSigin() {
         try {
-            logger.info("Clicking on 'Sign In' button.");
+         //   logger.info("Clicking on 'Sign In' button.");
             signInButton.click();
         } catch (NoSuchElementException | ElementNotInteractableException e) {
-            logger.error("Error clicking 'Sign In' button: {}", e.getMessage());
+          //  logger.error("Error clicking 'Sign In' button: {}", e.getMessage());
         }
     }
 }

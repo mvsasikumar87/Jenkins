@@ -68,26 +68,25 @@ public class StudentPage {
 
     public void clickStudent() {
         try {
-            logger.info("Clicking on 'Student' button.");
+       //     logger.info("Clicking on 'Student' button.");
             studentButton.click();
         } catch (NoSuchElementException | ElementNotInteractableException e) {
-            logger.error("Error clicking 'Student' button: {}", e.getMessage());
+         //   logger.error("Error clicking 'Student' button: {}", e.getMessage());
         }
     }
 
     public void clickRegister() {
         try {
-            logger.info("Clicking on 'Register' button.");
+         //   logger.info("Clicking on 'Register' button.");
             registerButton.click();
         } catch (NoSuchElementException | ElementNotInteractableException e) {
-            logger.error("Error clicking 'Register' button: {}", e.getMessage());
+         //   logger.error("Error clicking 'Register' button: {}", e.getMessage());
         }
     }
 
     public void fillStudentDetails(String name, String mobile, String email, String cgpa, String dept, String backlog) {
         try {
-            logger.info("Filling student details: Name={}, Mobile={}, Email={}, CGPA={}, Dept={}, Backlog={}",
-                    name, mobile, email, cgpa, dept, backlog);
+          
             studentNameField.sendKeys(name);
             mobileNumberField.sendKeys(mobile);
             emailField.sendKeys(email);
@@ -95,16 +94,16 @@ public class StudentPage {
             deptNameField.sendKeys(dept);
             backlogCountField.sendKeys(backlog);
         } catch (NoSuchElementException | ElementNotInteractableException e) {
-            logger.error("Error filling student details: {}", e.getMessage());
+         //   logger.error("Error filling student details: {}", e.getMessage());
         }
     }
 
     public void submitRegistrationForm() {
         try {
-            logger.info("Submitting student registration form.");
+          //  logger.info("Submitting student registration form.");
             submitButton.click();
         } catch (NoSuchElementException | ElementNotInteractableException e) {
-            logger.error("Error submitting student registration form: {}", e.getMessage());
+       //     logger.error("Error submitting student registration form: {}", e.getMessage());
         }
     }
 
@@ -115,25 +114,25 @@ public class StudentPage {
         	js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
         	Thread.sleep(3000);
             String result = resultText.getText();
-            logger.info("Result text obtained: {}", result);
+        //    logger.info("Result text obtained: {}", result);
             return result;
         } catch (NoSuchElementException e) {
-            logger.error("Error fetching result text: {}", e.getMessage());
+         //   logger.error("Error fetching result text: {}", e.getMessage());
             return "Error fetching result";
         }
     }
 
     public void clickViewAllStudent() {
         try {
-            logger.info("Clicking on 'View All Students' link.");
+         //   logger.info("Clicking on 'View All Students' link.");
             viewAllStudentLink.click();
         } catch (NoSuchElementException | ElementNotInteractableException e) {
-            logger.error("Error clicking 'View All Students' link: {}", e.getMessage());
+         //   logger.error("Error clicking 'View All Students' link: {}", e.getMessage());
         }
     }
 
     public List<String> getStudentDetails(String studentId) {
-        logger.info("Retrieving details for student ID: {}", studentId);
+       // logger.info("Retrieving details for student ID: {}", studentId);
         try {
             List<WebElement> rows = driver.findElements(By.tagName("tr"));
 
@@ -146,55 +145,55 @@ public class StudentPage {
                         for (WebElement column : columns) {
                             rowData.add(column.getText());
                         }
-                        logger.info("Student details found: {}", rowData);
+                      //  logger.info("Student details found: {}", rowData);
                         return rowData;
                     }
                 }
             }
         } catch (NoSuchElementException | StaleElementReferenceException e) {
-            logger.error("Error retrieving student details: {}", e.getMessage());
+         //   logger.error("Error retrieving student details: {}", e.getMessage());
         }
 
-        logger.warn("No student found with ID: {}", studentId);
+        //logger.warn("No student found with ID: {}", studentId);
         return new ArrayList<>();
     }
 
     public void clickViewByEmailId() {
         try {
-            logger.info("Clicking on 'View By Email ID' link.");
+          //  logger.info("Clicking on 'View By Email ID' link.");
             viewByEmailId.click();
         } catch (NoSuchElementException | ElementNotInteractableException e) {
-            logger.error("Error clicking 'View By Email ID' link: {}", e.getMessage());
+          //  logger.error("Error clicking 'View By Email ID' link: {}", e.getMessage());
         }
     }
 
     public void searchEmailId(String emailId) {
         try {
-            logger.info("Searching for student with Email ID: {}", emailId);
+            //logger.info("Searching for student with Email ID: {}", emailId);
             Select s = new Select(searchEmail);
             s.selectByVisibleText(emailId);
         } catch (NoSuchElementException | ElementNotInteractableException e) {
-            logger.error("Error selecting email ID '{}': {}", emailId, e.getMessage());
+           // logger.error("Error selecting email ID '{}': {}", emailId, e.getMessage());
         }
     }
 
     public void clickSearchButton() {
         try {
-            logger.info("Clicking on 'Search' button.");
+        //    logger.info("Clicking on 'Search' button.");
             searchButton.click();
         } catch (NoSuchElementException | ElementNotInteractableException e) {
-            logger.error("Error clicking 'Search' button: {}", e.getMessage());
+         //   logger.error("Error clicking 'Search' button: {}", e.getMessage());
         }
     }
 
     public List<String> getResultUsingEmailId() {
-        logger.info("Fetching student details using Email ID search.");
+       // logger.info("Fetching student details using Email ID search.");
         List<String> result = new ArrayList<>();
         try {
             List<WebElement> elements = driver.findElements(By.xpath("//table[@id='viewTable']/tr/td"));
 
             if (elements.isEmpty()) {
-                logger.warn("No student records found for the given email.");
+           //     logger.warn("No student records found for the given email.");
                 return result;
             }
 
@@ -203,9 +202,9 @@ public class StudentPage {
                 result.add(text);
             }
 
-            logger.info("Search result: {}", result);
+          //  logger.info("Search result: {}", result);
         } catch (NoSuchElementException | StaleElementReferenceException e) {
-            logger.error("Error fetching search results: {}", e.getMessage());
+          //  logger.error("Error fetching search results: {}", e.getMessage());
         }
         return result;
     }

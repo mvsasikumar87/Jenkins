@@ -61,33 +61,33 @@ public class StudentPortalTest {
     @BeforeClass
     public void setUpTest() {
         try {
-            logger.info("Initializing the WebDriver...");
+         //   logger.info("Initializing the WebDriver...");
             driver = BaseTest.setUp();
             driver.get("http://webapps.tekstac.com:2121/");
-            logger.info("Navigated to Student Portal.");
+         //   logger.info("Navigated to Student Portal.");
 
             loginPage = new LoginPage(driver);
             studentPage = new StudentPage(driver);
         } catch (Exception e) {
-            logger.error("Error during WebDriver setup: ", e);
+         //   logger.error("Error during WebDriver setup: ", e);
         }
     }
 
     @Test
     public void testAddStudent() throws Throwable {
         try {
-            logger.info("Starting test: Add Student");
+         //   logger.info("Starting test: Add Student");
 
             loginPage.enterUsername(ConfigReader.getPropertyValue("username"));
             loginPage.enterPassword(ConfigReader.getPropertyValue("password"));
             loginPage.clickSigin();
-            logger.info("User logged in successfully.");
+        //    logger.info("User logged in successfully.");
 
             String[] excelData = null;
             try {
                 excelData = ExcelReader.readExcelData("TestData.xlsx", "Sheet1");
             } catch (Exception e) {
-                logger.error("Error reading data from Excel: ", e);
+         //       logger.error("Error reading data from Excel: ", e);
                 return;
             }
 
@@ -95,57 +95,57 @@ public class StudentPortalTest {
             studentPage.clickRegister();
             studentPage.fillStudentDetails(excelData[0], excelData[1], excelData[2], excelData[3], excelData[4], excelData[5]);
             studentPage.submitRegistrationForm();
-            logger.info("Student details submitted successfully.");
+       //     logger.info("Student details submitted successfully.");
 
             studentRegistrationResult = studentPage.getResult();
             System.out.println("studentRegistrationResult#############"+studentRegistrationResult);
             
-            logger.info("Registration result: " + studentRegistrationResult);
+        //    logger.info("Registration result: " + studentRegistrationResult);
 
             if (studentRegistrationResult.contains("Registration was successful"))
-                logger.info("Student details are added successfully");
-            else
-                logger.error("Student Registration failed. Expected 'John Smith' in result.");
+          //      logger.info("Student details are added successfully");
+        //    else
+          //      logger.error("Student Registration failed. Expected 'John Smith' in result.");
             
             try {
                 int lastSpaceIndex = studentRegistrationResult.lastIndexOf(" ");
                 studentRollNo = studentRegistrationResult.substring(lastSpaceIndex + 1).replace(".", "");
-                logger.info("Extracted Student RollNO: " + studentRollNo);
+           //     logger.info("Extracted Student RollNO: " + studentRollNo);
             } catch (Exception e) {
-                logger.error("Error extracting Student RollNo from result: ", e);
+           //     logger.error("Error extracting Student RollNo from result: ", e);
             }
 
             studentPage.clickViewAllStudent();
             List<String> studentDetails = studentPage.getStudentDetails(studentRollNo);
             for (String s : studentDetails) {
-                logger.info("Student Details: " + s);
+               // logger.info("Student Details: " + s);
             }
-            logger.info("Studet table is verified successfully");
+         //   logger.info("Studet table is verified successfully");
             studentPage.clickViewByEmailId();
             studentPage.searchEmailId(excelData[2]);
             studentPage.clickSearchButton();
 
             viewByEmailID = studentPage.getResultUsingEmailId();
             for (String stud : viewByEmailID) {
-                logger.info("Student Record by Email: " + stud);
+        //        logger.info("Student Record by Email: " + stud);
             }
 
-            logger.info("Test case 'testAddStudent' completed.");
+         //   logger.info("Test case 'testAddStudent' completed.");
         } catch (Exception e) {
-            logger.error("Error during 'testAddStudent': ", e);
+        //    logger.error("Error during 'testAddStudent': ", e);
         }
     }
 
     @Test
     public void testUpdateDeleteStudent() {
         try {
-            logger.info("Starting test: Update and Delete Student");
+         //   logger.info("Starting test: Update and Delete Student");
 
             try {
                 BaseAPI.getToken();
-                logger.info("Token generated successfully.");
+            //    logger.info("Token generated successfully.");
             } catch (Exception e) {
-                logger.error("Error generating API token: ", e);
+           //     logger.error("Error generating API token: ", e);
                 return;
             }
 
@@ -153,47 +153,47 @@ public class StudentPortalTest {
             	String backlogCount="10";
             	updateRecord=BaseAPI.updateBacklog(studentRollNo, backlogCount);
                 if(updateRecord.asPrettyString().contains(studentRollNo)&&updateRecord.asPrettyString().contains(backlogCount))
-                	logger.info("Student backlogCount updation is successful");
-                else
-                	logger.error("Student backlogCount updation is not successful");
+             //   	logger.info("Student backlogCount updation is successful");
+            //    else
+               // 	logger.error("Student backlogCount updation is not successful");
                 logger.info("PUT response has been successfully verified");
             } catch (Exception e) {
-                logger.error("Error updating student details: ", e);
+            //    logger.error("Error updating student details: ", e);
                 
             }
 
             try {
             	deleteRecord=BaseAPI.deleteRecord(studentRollNo);
-                logger.info("Deleted student Roll No: " + studentRollNo);
+           //     logger.info("Deleted student Roll No: " + studentRollNo);
                 
             } catch (Exception e) {
-                logger.error("Error deleting student: ", e);
+           //     logger.error("Error deleting student: ", e);
             }
 
         try {
             verifyRecord=BaseAPI.verifyRecord();
-            logger.info("Checking Deleted student Roll No: " + studentRollNo);
-            if(!verifyRecord.asPrettyString().contains(studentRollNo))
-            	logger.info("Deletion is Successful");
-            else
-            	logger.info("Deletion is not Successful");
+          //  logger.info("Checking Deleted student Roll No: " + studentRollNo);
+      //      if(!verifyRecord.asPrettyString().contains(studentRollNo))
+           // 	logger.info("Deletion is Successful");
+          //  else
+           // 	logger.info("Deletion is not Successful");
         } catch (Exception e) {
-            logger.error("Error deleting student: ", e);
+          //  logger.error("Error deleting student: ", e);
         }
 
     } catch (Exception e) {
-        logger.error("Unexpected error in 'testUpdateDeleteStudent': ", e);
+       // logger.error("Unexpected error in 'testUpdateDeleteStudent': ", e);
     }
     }
 
     @AfterClass
     public void tearDownTest() {
         try {
-            logger.info("Closing the WebDriver...");
+       //     logger.info("Closing the WebDriver...");
             BaseTest.tearDown();
-            logger.info("Test execution completed.");
+       //     logger.info("Test execution completed.");
         } catch (Exception e) {
-            logger.error("Error during WebDriver teardown: ", e);
+         //   logger.error("Error during WebDriver teardown: ", e);
         }
     }
     

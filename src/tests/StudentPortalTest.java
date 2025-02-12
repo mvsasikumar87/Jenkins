@@ -85,7 +85,7 @@ public class StudentPortalTest {
 
             String[] excelData = null;
             try {
-                excelData = ExcelReader.readExcelData("TestData.xlsx", "Sheet1");
+                excelData = ExcelReader.readExcelData("D:\\Sasi\\Jenkins\\Test\\TestData.xlsx", "Sheet1");
             } catch (Exception e) {
          //       logger.error("Error reading data from Excel: ", e);
                 return;
